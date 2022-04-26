@@ -1,5 +1,6 @@
 import React from 'react';
 // import AznIcon from '../../images/azn.svg'
+import Photo from '../../images/bosch.png'
 import "../../css/product.css"
 
 const Product = ({ data }) => {
@@ -7,8 +8,8 @@ const Product = ({ data }) => {
 
     return (
         <>
-        <div className="font-semibold product-background  p-1">
-            <img src={data.image.url} alt=""/>
+        <div className="font-semibold product-background p-1 md:w-52">
+            <div className='flex'><img src={data.image.url} alt="" /></div>
             <div className='md:flex text-sm'>
                 <p className='pr-1 md:pr-2'>{data.name}</p>
                 <span className=''>{data.variant_groups[1].options[0].name}</span>

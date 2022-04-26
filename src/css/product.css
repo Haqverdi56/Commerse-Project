@@ -1,9 +1,12 @@
 .product-background {
     background: #FFFFFF;
-    box-shadow: 0 4px 8px rgba(164, 164, 164, 0.08);
+    box-shadow: 0 4px 8px rgba(164, 164, 164, 0.4);
     border-radius: 4px;
+    padding: 10px;
 }
-
+.product-background img {
+    margin-right: 0px !important;
+}
 .filter-white {
     filter: brightness(0%);
 }

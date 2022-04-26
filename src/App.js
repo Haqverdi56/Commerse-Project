@@ -1,5 +1,5 @@
 import HomePage from "./pages/homepage/HomePage"
-import Payment from "./pages/payment/Payment";
+import Category from "./pages/category/Category";
 import Header from "./components/Header"
 import Footer from "./components/Footer";
 
@@ -14,7 +14,7 @@ function App() {
       <Header/>
       <Routes >
         <Route path="/" element={ <HomePage/>}/>
-        <Route path="test" element={ <Payment/>}/>
+        <Route path="test" element={ <Category/>}/>
       </Routes >
       <Footer/>
     </div>

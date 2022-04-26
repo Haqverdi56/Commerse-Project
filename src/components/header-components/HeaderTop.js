@@ -35,7 +35,7 @@ const HeaderTop = () => {
   }
 
   return (
-    <div className="w-full md:container md:mx-auto md:px-4">
+    <div className="w-full md:container md:mx-auto ">
       <div className={`container mx-auto  w-full flex flex-col justify-between bg-white h-screen ${!open && "-mx-96 hidden" } md:hidden z-10  transition`}>
         <div>
           <div className="flex justify-between items-center container mx-auto px-4">
