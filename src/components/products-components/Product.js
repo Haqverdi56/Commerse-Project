@@ -1,6 +1,5 @@
 import React from 'react';
 // import AznIcon from '../../images/azn.svg'
-import Photo from '../../images/bosch.png'
 import "../../css/product.css"
 
 const Product = ({ data }) => {

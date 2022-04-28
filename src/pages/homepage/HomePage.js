@@ -12,7 +12,9 @@ import commerce from '../../lib/Ecommerce.js'
 const HomePage = () => {
   const [data,setData] = useState([])
   useEffect(() => {
-    commerce.products.list().then((product) => setData(product.data));
+    commerce.products.list({
+      category_slug: ['telefonlar'],
+    }).then(response => setData(response.data));
   }, [])
   
     

@@ -8,6 +8,7 @@ import { FiMenu } from 'react-icons/fi'
 import { GrClose } from 'react-icons/gr'
 import projectX from '../../images/project-x.png'
 import { Link } from "react-router-dom"
+import {useSelector} from 'react-redux'
 
 const HeaderTop = () => {
   const [open, setOpen] = useState(false);
@@ -33,6 +34,8 @@ const HeaderTop = () => {
     e.target.className = 'hover:text-green-500';
     setHover(true)
   }
+
+  const basketCount = useSelector((state) => state.basket.value)
 
   return (
     <div className="w-full md:container md:mx-auto ">
@@ -73,10 +76,11 @@ const HeaderTop = () => {
             <FiMenu className="sm:hidden font-thin mr-8" onClick={openMyHamburger} />
             <Link to='/'><img onClick={closeMyHamburger} src={logo} alt="" /></Link>
           </div>
-          <div className="md:hidden">
+          <div className="md:hidden flex">
             <HiOutlineUser className="inline-block text-2xl opacity-70" />
             <IoMdHeartEmpty className="inline-block text-2xl opacity-70 mx-3" />
-            <CgShoppingCart className="inline-block text-2xl opacity-70" />
+            <Link to='/basket'><CgShoppingCart className="inline-block text-2xl opacity-70" /></Link>
+            <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-xs">{basketCount.length}</span>
           </div>
         </div>
         <div className="bg-gray-100 p-2 rounded-lg md:flex justify-start items-center md:w-5/12 md:h-10">
@@ -88,10 +92,11 @@ const HeaderTop = () => {
             className="bg-inherit focus:outline-none pl-2 md:w-full"
           />
         </div>
-        <div className="hidden md:inline-block">
+        <div className="md:flex items-center hidden md:inline-block">
           <HiOutlineUser className="inline-block text-xl opacity-70" />
           <IoMdHeartEmpty className="inline-block text-xl opacity-70 md:mx-5" />
-          <CgShoppingCart className="inline-block text-xl opacity-70" />
+          <Link to='/basket'><CgShoppingCart className="inline-block text-xl opacity-70" /></Link>
+          <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-sm">{basketCount.length}</span>
         </div>
       </div>
     </div>
