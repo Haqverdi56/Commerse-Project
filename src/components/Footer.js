@@ -13,7 +13,7 @@ import {IoLocation, IoMail} from "react-icons/io5";
 const Footer = () => {
     return (
         <div className="background-footer">
-            <div className="flex md:flex-row flex-col text-white pr-0 pl-0 mt-12 pb-12 justify-around md:mb-8 md:items-start items-center">
+            <div className="flex md:flex-row flex-col text-white pr-0 pl-0 pb-12 justify-around md:mb-8 md:items-start items-center">
                 <div className="mb-8">
                     <img className='pt-8'  src={Logo} alt=""/>
                     <ul className="flex mt-1 justify-between list-none">

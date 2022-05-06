@@ -6,7 +6,7 @@ import { FaAward } from "react-icons/fa"
  
 const DeliveryGuaranty = () => {
   return (
-    <div className='md:flex gap-3 justify-between text-center md:mt-28 mt-14 container mx-auto px-4'>
+    <div className='md:flex gap-3 justify-between text-center md:mt-28 mt-14 container mx-auto px-4 pb-10 md:pb-0'>
         <div className='flex flex-col items-center justify-end'>
             <BiCube className='text-7xl font-light text-green-600' />
             <p className='font-semibold md:my-5 my-4'>Çatdırılma</p>

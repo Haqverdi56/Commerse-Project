@@ -18,7 +18,7 @@ const Category = () => {
     console.log(data);
   return (
     <>
-    <div className="flex container mx-auto px-4 md:mt-20">
+    <div className="flex container mx-auto px-4 md:mt-20 pb-20">
         <div className="w-72">
         <Accordion>
                 <AccordionItem>

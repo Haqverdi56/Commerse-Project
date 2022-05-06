@@ -92,7 +92,7 @@ const HeaderTop = () => {
             className="bg-inherit focus:outline-none pl-2 md:w-full"
           />
         </div>
-        <div className="md:flex items-center hidden md:inline-block">
+        <div className="md:flex items-center hidden">
           <HiOutlineUser className="inline-block text-xl opacity-70" />
           <IoMdHeartEmpty className="inline-block text-xl opacity-70 md:mx-5" />
           <Link to='/basket'><CgShoppingCart className="inline-block text-xl opacity-70" /></Link>

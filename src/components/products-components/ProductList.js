@@ -5,11 +5,12 @@ import {Pagination} from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import {MdArrowForwardIos} from 'react-icons/md';
+import { useSelector } from 'react-redux';
 
-const ProductList = ({category, link, data}) => {
+const ProductList = ({category, link}) => {
     let [mywindow, setMywindow] = useState({});
-
-    // console.log(data);
+    const data = useSelector(state=>state.mobile.value);
+    
     useEffect(() => {
         let resizeId;
         window.addEventListener("resize", function () {
@@ -33,7 +34,6 @@ const ProductList = ({category, link, data}) => {
                 <MdArrowForwardIos/>
                 </a>
             </div>
-
             <Swiper
                 effect="fade"
                 spaceBetween={50}
@@ -42,10 +42,10 @@ const ProductList = ({category, link, data}) => {
                 pagination={{
                     clickable: true
                 }}
-                className="center mb-10 md:mb-12 "
+                className="center mb-10 md:mb-12"
                 >
-                {data.map((data, index) => {
-                   return <SwiperSlide key={index}><Product data={data} className="md:w-1/5 w-6/12"/></SwiperSlide>
+                {data.map((dataItem, index) => {
+                   return <SwiperSlide key={index}><Product dataItem={dataItem} className="md:w-1/5 w-6/12"/></SwiperSlide>
                 })}
             </Swiper>
 

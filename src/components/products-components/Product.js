@@ -1,20 +1,28 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../reducers/basketSlice';
+import {BsBasket} from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 // import AznIcon from '../../images/azn.svg'
 import "../../css/product.css"
 
-const Product = ({ data }) => {
-    console.log(data.variant_groups[0]);
+const Product = ({ dataItem }) => {
+    const dispatch = useDispatch()
+    console.log(dataItem);
 
     return (
         <>
-        <div className="font-semibold product-background p-1 md:w-52">
-            <div className='flex'><img src={data.image.url} alt="" /></div>
+        <div className="font-semibold product-background p-1 md:w-52 bg-">
+            <Link to='/productAbout'><div className='flex md:mx-10'><img src={dataItem.image.url} alt="" /></div></Link>
             <div className='md:flex text-sm'>
-                <p className='pr-1 md:pr-2'>{data.name}</p>
-                <span className=''>{data.variant_groups[1].options[0].name}</span>
+                <p className='pr-1 md:pr-2'>{dataItem.name}</p>
+                <span className=''>{dataItem.variant_groups[1].options[0].name}</span>
             </div>
-            <p>{data.variant_groups[0].options[0].name}</p>
-            <span>{data.price.formatted_with_symbol}</span>
+            <p>{dataItem.variant_groups[0].options[0].name}</p>
+            <span>{dataItem.price.formatted_with_symbol}</span>
+            <button onClick={() => {
+                dispatch(addProduct(dataItem));
+            }}><BsBasket/></button>
         </div>
         </>
     );

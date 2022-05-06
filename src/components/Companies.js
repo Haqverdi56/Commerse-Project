@@ -29,7 +29,6 @@ const Companies = () => {
           {company.map((logo, index) => {
             return <SwiperSlide key={index}><img src={logo} className="bg-white rounded-md px-4 p-1" alt="" /></SwiperSlide>
           })}
-
         </Swiper>
       </div>
     </div>

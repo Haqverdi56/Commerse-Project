@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Headerhover from './Header-hover';
 import { Link } from "react-router-dom"
 
@@ -13,13 +13,6 @@ const HeaderUl = () => {
   function removeHover() {
     setHover(false)
   }
-
-  useEffect(() => {
-    if(hover === true){
-      console.log("Hover true");
-    }
-  }, [hover])
-  
 
   return (
     <>
