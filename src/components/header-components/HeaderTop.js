@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import logo from '../../images/Tello-logo.png'
 import { RiSearch2Line } from 'react-icons/ri'
 import { HiOutlineUser } from 'react-icons/hi'
@@ -9,10 +9,16 @@ import { GrClose } from 'react-icons/gr'
 import projectX from '../../images/project-x.png'
 import { Link } from "react-router-dom"
 import {useSelector} from 'react-redux'
+import commerce from '../../lib/Ecommerce';
+import { useDispatch } from 'react-redux';
+import { sendCategoryName } from "../../reducers/CategorySlice";
 
 const HeaderTop = () => {
   const [open, setOpen] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [categoryName, setCategoryName] = useState([]);
   const searchRef = useRef()
+  const dispatch = useDispatch();
   
   const openMyHamburger = () => {
     setOpen(true)
@@ -28,17 +34,18 @@ const HeaderTop = () => {
     searchRef.current.focus()
   }
 
-  const [hover, setHover] = useState(false)
-
   function changeColor(e) {
     e.target.className = 'hover:text-green-500';
     setHover(true)
   }
 
-  const basketCount = useSelector((state) => state.basket.value)
+  const basketCount = useSelector((state) => state.basket.value);
+  useEffect(() => {
+    commerce.categories.list().then((category) => setCategoryName(category.data[0].children));
+  }, [])
 
   return (
-    <div className="w-full md:container md:mx-auto ">
+    <div className="w-full md:container md:mx-auto">
       <div className={`container mx-auto  w-full flex flex-col justify-between bg-white h-screen ${!open && "-mx-96 hidden" } md:hidden z-10  transition`}>
         <div>
           <div className="flex justify-between items-center container mx-auto px-4">
@@ -54,14 +61,14 @@ const HeaderTop = () => {
           </div>
           <div>
             <ul className='flex flex-col gap-3 md:gap-8 lg:gap-14 mt-4 border-t-2 borter-t-gray-400 container mx-auto px-4 pt-3'>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to='test'>Hamısı</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Apple</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Samsung</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Xiaomi</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Redmi</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Nokia</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Aksesuarlar</Link></li>
-              <li onMouseOver={changeColor} onClick={() => {setHover(false); setOpen(false)}}><Link to={'test'}>Endirimler</Link></li>
+              {categoryName.map((category, i) => {
+              return (
+                <li key={i} onMouseOver={changeColor} onClick={() => {
+                  closeMyHamburger()
+                  dispatch(sendCategoryName(category))
+                }}><Link to={`category/${category.name}`}>{category.name}</Link></li>
+              )
+              })}
             </ul>
           </div>
         </div>
@@ -77,7 +84,7 @@ const HeaderTop = () => {
             <Link to='/'><img onClick={closeMyHamburger} src={logo} alt="" /></Link>
           </div>
           <div className="md:hidden flex">
-            <HiOutlineUser className="inline-block text-2xl opacity-70" />
+            <Link to='userInfo'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link>
             <IoMdHeartEmpty className="inline-block text-2xl opacity-70 mx-3" />
             <Link to='/basket'><CgShoppingCart className="inline-block text-2xl opacity-70" /></Link>
             <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-xs">{basketCount.length}</span>
@@ -93,7 +100,8 @@ const HeaderTop = () => {
           />
         </div>
         <div className="md:flex items-center hidden">
-          <HiOutlineUser className="inline-block text-xl opacity-70" />
+          <Link to='userInfo'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link>
+          {/* <Link to='/login'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link> */}
           <IoMdHeartEmpty className="inline-block text-xl opacity-70 md:mx-5" />
           <Link to='/basket'><CgShoppingCart className="inline-block text-xl opacity-70" /></Link>
           <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-sm">{basketCount.length}</span>

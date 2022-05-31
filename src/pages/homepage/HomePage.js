@@ -5,13 +5,12 @@ import Categories from '../../components/Categories'
 import Companies from '../../components/Companies.js'
 import ProductList from "../../components/products-components/ProductList";
 import Banner from "../../components/Banner";
-import {useSelector, useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import commerce from '../../lib/Ecommerce.js';
 import {addMobile} from '../../reducers/MobileReducer'
 
 
 const HomePage = () => {
-  // const dataMobile = useSelector(state=> state.mobile.value)
   const dispatch = useDispatch()
   
   useEffect(() => {
