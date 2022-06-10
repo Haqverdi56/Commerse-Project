@@ -16,3 +16,7 @@ code {
     monospace;
 }
 
+.product-added {
+  position: absolute;
+  background-color: lightgreen;
+}

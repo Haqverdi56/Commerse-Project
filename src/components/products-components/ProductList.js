@@ -36,8 +36,8 @@ const ProductList = ({category, link}) => {
             </div>
             <Swiper
                 effect="fade"
-                spaceBetween={50}
-                slidesPerView={mywindow.width && mywindow.width < 768 ? 2 : 4}
+                spaceBetween={30}
+                slidesPerView={mywindow.width && mywindow.width < 768 ? 2 : 5}
                 modules={[Pagination]}
                 pagination={{
                     clickable: true

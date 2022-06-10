@@ -14,7 +14,7 @@ const Companies = () => {
   let company = [toshiba, philips, hp, electrolux, gorenje, bosch, bosch, bosch]
   return (
     <>
-    <div className='w-full bg-neutral-100 flex justify-center items-center md:mt-24 hidden md:block'>
+    <div className='w-full bg-neutral-100 md:flex justify-center items-center md:mt-24 hidden'>
       <div className='companies container px-4 mx-0 pl-20 w-full mb-10 md:mb-0 md:pt-16 pb-20'>
         <Swiper
           effect="fade"

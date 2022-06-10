@@ -1,15 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
 import logo from '../../images/Tello-logo.png'
+import projectX from '../../images/project-x.png'
+import commerce from '../../lib/Ecommerce';
 import { RiSearch2Line } from 'react-icons/ri'
 import { HiOutlineUser } from 'react-icons/hi'
 import { IoMdHeartEmpty } from 'react-icons/io'
 import { CgShoppingCart } from 'react-icons/cg'
 import { FiMenu } from 'react-icons/fi'
 import { GrClose } from 'react-icons/gr'
-import projectX from '../../images/project-x.png'
 import { Link } from "react-router-dom"
 import {useSelector} from 'react-redux'
-import commerce from '../../lib/Ecommerce';
 import { useDispatch } from 'react-redux';
 import { sendCategoryName } from "../../reducers/CategorySlice";
 
@@ -85,7 +85,7 @@ const HeaderTop = () => {
           </div>
           <div className="md:hidden flex">
             <Link to='userInfo'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link>
-            <IoMdHeartEmpty className="inline-block text-2xl opacity-70 mx-3" />
+            <IoMdHeartEmpty className="inline-block text-2xl opacity-70 mx-2" />
             <Link to='/basket'><CgShoppingCart className="inline-block text-2xl opacity-70" /></Link>
             <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-xs">{basketCount.length}</span>
           </div>
@@ -102,7 +102,7 @@ const HeaderTop = () => {
         <div className="md:flex items-center hidden">
           <Link to='userInfo'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link>
           {/* <Link to='/login'><HiOutlineUser className="inline-block text-xl opacity-70" /></Link> */}
-          <IoMdHeartEmpty className="inline-block text-xl opacity-70 md:mx-5" />
+          <IoMdHeartEmpty className="inline-block text-xl opacity-70 md:mx-3" />
           <Link to='/basket'><CgShoppingCart className="inline-block text-xl opacity-70" /></Link>
           <span className="w-5 h-5 bg-green-500 rounded-[50%] flex justify-center items-center text-sm">{basketCount.length}</span>
         </div>
